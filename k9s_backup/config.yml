@@ -1,0 +1,93 @@
+k9s:
+  refreshRate: 2
+  maxConnRetry: 5
+  enableMouse: false
+  headless: false
+  logoless: false
+  crumbsless: false
+  readOnly: false
+  noIcons: false
+  logger:
+    tail: 100
+    buffer: 5000
+    sinceSeconds: 60
+    fullScreenLogs: false
+    textWrap: false
+    showTime: false
+  currentContext: test
+  currentCluster: test005-fqdn
+  clusters:
+    dev005-fqdn:
+      namespace:
+        active: cis-apps
+        favorites:
+        - cis-apis
+        - cis-apps
+        - cis-jobs
+        - cis-tools
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    prod005-fqdn:
+      namespace:
+        active: cis-apis
+        favorites:
+        - nwag-apps
+        - cis-tools
+        - cis-jobs
+        - cis-apis
+        - cis-apps
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    test005-fqdn:
+      namespace:
+        active: cis-apps
+        favorites:
+        - cis-jobs
+        - cis-tools
+        - cis-apis
+        - cis-apps
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
